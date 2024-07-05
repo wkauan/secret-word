@@ -17,8 +17,7 @@ Verificar Resultado: O jogo informará se sua tentativa foi correta ou não.
 Repetir: Se sua tentativa estiver incorreta, você pode tentar novamente até o limite de 3 tentativas.
 
 ## Tecnologias Utilizadas
-Frontend: Desenvolvido utilizando HTML, CSS e JavaScript.
-Backend: Utiliza um servidor web para gerenciar as palavras secretas e as tentativas.
+Frontend: Desenvolvido utilizando ReactJs.
 
 ## Como Executar o Projeto
 ```console
