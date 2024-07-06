@@ -24,7 +24,7 @@ Frontend: Desenvolvido utilizando ReactJs.
     git clone https://github.com/wkauan/secretWord.git
 ```
 ```console
-    cd secret-word
+    cd secretWord
 ```
 ```console
     npm i
