@@ -1,7 +1,7 @@
 # Secret Word
 
 ## Descrição do Projeto
-O "Secret Word" é um jogo interativo inspirado no famoso programa de TV "Jogo do Milhão". O objetivo do jogo é adivinhar a palavra secreta correta a partir de dicas fornecidas. Você tem um total de 3 tentativas para adivinhar a palavra antes de perder o jogo.
+O Secret Word é um jogo inspirado no programa de TV "Jogo do Milhão". O objetivo do jogo é adivinhar a palavra secreta correta a partir de dicas fornecidas.
 
 ## Funcionalidades
 Dicas: Receba dicas para ajudar a adivinhar a palavra secreta.
