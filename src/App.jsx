@@ -18,6 +18,8 @@ const stages = [
   { id: 3, name: "end" },
 ];
 
+const guessedQty = 3;
+
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [pickedWord, setPickedWord] = useState("");
@@ -25,7 +27,7 @@ function App() {
   const [letters, setLetters] = useState([]);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
-  const [guesses, setGuesses] = useState(3);
+  const [guesses, setGuesses] = useState(guessedQty);
   const [score, setScore] = useState(0);
 
   const [words] = useState(wordsList);
@@ -53,9 +55,6 @@ function App() {
 
     wordLetters = wordLetters.map((i) => i.toLowerCase());
 
-    console.log(category, word);
-    console.log(wordLetters);
-
     // Fill states
     setPickedCategory(category);
     setPickedWord(word);
@@ -65,12 +64,52 @@ function App() {
   };
 
   // Process the letter input
-  const verifyLetter = () => {
-    setGameStage(stages[2].name);
+  const verifyLetter = (letter) => {
+    const normalizedLetter = letter.toLowerCase();
+
+    // Check if letter has already been utilized
+    if (
+      guessedLetters.includes(normalizedLetter) ||
+      wrongLetters.includes(normalizedLetter)
+    ) {
+      return;
+    }
+
+    // Push guessed letter or remove a guess
+    if (letters.includes(normalizedLetter)) {
+      setGuessedLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        normalizedLetter,
+      ]);
+    } else {
+      setWrongLetters((actualWrongLetters) => [
+        ...actualWrongLetters,
+        normalizedLetter,
+      ]);
+
+      setGuesses((actualGuessedLetters) => actualGuessedLetters - 1);
+    }
   };
+
+  const clearLetterStates = () => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  };
+
+  useEffect(() => {
+    if (guesses <= 0) {
+      // Reset all states
+      clearLetterStates();
+
+      setGameStage(stages[2].name);
+    }
+  }, [guesses]);
 
   // Restarts the game
   const retry = () => {
+    setScore(0);
+    setGuesses(guessedQty);
+
     setGameStage(stages[0].name);
   };
 
