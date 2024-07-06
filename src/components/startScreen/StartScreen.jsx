@@ -1,4 +1,4 @@
-import "./StartScreen.css"
+import "./StartScreen.css";
 
 const StartScreen = ({ startGame }) => {
   return (
@@ -7,7 +7,7 @@ const StartScreen = ({ startGame }) => {
       <p>Clique no botão abaixo para começar a jogar</p>
       <button onClick={startGame}>Começar o jogo</button>
     </div>
-  )
-}
+  );
+};
 
-export default StartScreen
+export default StartScreen;
