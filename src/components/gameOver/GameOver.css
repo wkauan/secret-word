@@ -1,4 +1,5 @@
-h2 span {
+h2 span,
+p span {
   color: #ecfa00;
   font-size: 1.5em;
 }
